@@ -12,6 +12,8 @@ input/*.pickle
 # output files
 output/*.html
 output/*.pickle
+*.pkl
+models/*.pkl
 
 # ipython notebook files
 *.ipynb
@@ -107,6 +109,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+flavorgraph_env/
 
 # Spyder project settings
 .spyderproject
