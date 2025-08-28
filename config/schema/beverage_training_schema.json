@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BeverageTrainingRecord",
+  "type": "object",
+  "required": [
+    "id", "name", "country", "subcategory", "ingredients", "process", "labels"
+  ],
+  "properties": {
+    "id": {"type": "string"},
+    "name": {"type": "string"},
+    "country": {"type": "string", "enum": ["IN"]},
+    "subcategory": {"type": "string", "enum": ["carbonated", "water_based_flavoured_carbonated_beverage"]},
+    "dietary_mode": {"type": "string", "enum": ["liquid"]},
+    "veg_flag": {"type": "boolean"},
+    "jain_flag": {"type": "boolean"},
+    "allergens": {"type": "array", "items": {"type": "string"}},
+    "nutrition_per_100mL": {
+      "type": "object",
+      "properties": {
+        "energy_kcal": {"type": "number"},
+        "protein_g": {"type": "number"},
+        "carbs_g": {"type": "number"},
+        "sugars_g": {"type": "number"},
+        "fat_g": {"type": "number"},
+        "sodium_mg": {"type": "number"},
+        "potassium_mg": {"type": "number"}
+      }
+    },
+    "targets": {
+      "type": "object",
+      "properties": {
+        "brix_percent": {"type": "number"},
+        "pH": {"type": "number"},
+        "ta_g_L_as_citric": {"type": "number"},
+        "co2_volumes": {"type": "number"}
+      }
+    },
+    "ingredients": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "node_id", "quantity", "unit"],
+        "properties": {
+          "name": {"type": "string"},
+          "node_id": {"type": "string", "description": "FlavorGraph node id as string"},
+          "quantity": {"type": "number"},
+          "unit": {"type": "string", "enum": ["g", "kg", "mL", "L", "%_w_w", "%_w_v"]},
+          "class": {"type": "string", "enum": ["water", "sweetener", "acid", "flavor", "color", "preservative", "functional", "stabilizer"]},
+          "additive_code": {"type": "string", "description": "Link to FSSAI additive code if applicable"}
+        }
+      }
+    },
+    "process": {
+      "type": "object",
+      "required": ["template", "steps"],
+      "properties": {
+        "template": {"type": "string", "enum": ["standard_csd", "preserved_csd"]},
+        "steps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["step", "params"],
+            "properties": {
+              "step": {"type": "string"},
+              "params": {"type": "object"}
+            }
+          }
+        }
+      }
+    },
+    "labels": {
+      "type": "object",
+      "properties": {
+        "claims": {"type": "array", "items": {"type": "string"}},
+        "warnings": {"type": "array", "items": {"type": "string"}},
+        "veg_symbol": {"type": "boolean"}
+      }
+    },
+    "validation": {
+      "type": "object",
+      "properties": {
+        "constraints_version": {"type": "string"},
+        "passed": {"type": "boolean"},
+        "violations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "rule": {"type": "string"},
+              "detail": {"type": "string"}
+            }
+          }
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "source": {"type": "string", "enum": ["generated", "curated", "hybrid"]},
+        "generator_version": {"type": "string"},
+        "created_at": {"type": "string"}
+      }
+    }
+  }
+}
+
+

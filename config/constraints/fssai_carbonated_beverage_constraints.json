@@ -1,0 +1,156 @@
+{
+  "metadata": {
+    "name": "FSSAI_India_Carbonated_Beverage_Constraints",
+    "version": "0.1.0",
+    "scope": "India",
+    "category": "beverage",
+    "subcategory": "water_based_flavoured_carbonated_beverage",
+    "source": "FSSAI (Food Safety and Standards) – consolidate from FPS&FA and Food Additives Regulations",
+    "verification_status": "draft_pending_legal_review",
+    "last_updated": "2025-08-27"
+  },
+  "dietary": {
+    "dietary_mode": "liquid",
+    "vegetarian_default": true,
+    "vegan_option": true,
+    "jain_option": true,
+    "alcohol_allowed": false
+  },
+  "identification": {
+    "hsn": null,
+    "fssai_category_code": null
+  },
+  "hard_constraints": {
+    "prohibited_ingredients": [
+      "non_permitted_colors",
+      "non_permitted_preservatives",
+      "non_permitted_sweeteners",
+      "pharmaceutical_actives",
+      "cbd_cannabinoids",
+      "unsafe_levels_of_caffeine"
+    ],
+    "allergen_policy": {
+      "must_flag_on_presence": ["milk", "tree_nuts", "peanut", "soy", "gluten", "sulphites"],
+      "vegetarian_label_required": true
+    },
+    "caffeine": {
+      "permitted": true,
+      "unit": "mg_per_L",
+      "max": null,
+      "labelling_threshold": null,
+      "warnings": [
+        "Not recommended for children, pregnant or lactating women, and individuals sensitive to caffeine"
+      ],
+      "notes": "Exact limits vary by category (tea/coffee-based vs caffeinated beverages). Set during legal verification."
+    },
+    "additives": {
+      "sweeteners": {
+        "permitted_list_reference": "FSSAI Food Additives Regulations – Schedule for beverages",
+        "examples_commonly_permitted": [
+          "steviol_glycosides",
+          "sucralose",
+          "acesulfame_potassium",
+          "aspartame"
+        ],
+        "use_level": "refer_schedule",
+        "notes": "Use category-specific maximums; do not exceed combined ADI."
+      },
+      "colors": {
+        "permitted_list_reference": "FSSAI permitted colours for beverages",
+        "use_level": "refer_schedule"
+      },
+      "preservatives": {
+        "permitted_list_reference": "FSSAI permitted preservatives for beverages",
+        "examples_commonly_permitted": [
+          "sodium_benzoate",
+          "potassium_sorbate"
+        ],
+        "use_level": "refer_schedule"
+      },
+      "acids": {
+        "typical": ["citric_acid", "phosphoric_acid", "malic_acid"],
+        "use_level": "good_manufacturing_practice_within_sensory_and_pH_targets"
+      }
+    }
+  },
+  "operational_guidelines": {
+    "targets": {
+      "product_profiles": [
+        {
+          "name": "regular_sugar",
+          "brix_range_percent": [9.0, 13.0],
+          "notes": "For fully sugared CSDs"
+        },
+        {
+          "name": "mid_sugar",
+          "brix_range_percent": [5.0, 8.0]
+        },
+        {
+          "name": "diet_zero",
+          "brix_range_percent": [0.0, 2.0]
+        }
+      ],
+      "pH_range": [2.8, 3.6],
+      "titratable_acidity_guidance_g_L_as_citric": [1.5, 7.0],
+      "co2_volumes": [2.5, 3.5],
+      "sodium_mg_per_100mL_max": 50,
+      "potassium_mg_per_100mL_max": 80
+    },
+    "process_templates": [
+      {
+        "name": "standard_csd",
+        "steps": [
+          "prepare_syrup_mix",
+          "filter",
+          "in_line_blend_to_target_brix_and_acid",
+          "chill_to_cold_fill_temperature",
+          "carbonation_to_target_volumes",
+          "fill_and_seal",
+          "date_code_and_pack"
+        ]
+      },
+      {
+        "name": "preserved_csd",
+        "steps": [
+          "prepare_syrup_mix",
+          "preservative_dose_within_limits",
+          "filter",
+          "blend_to_spec",
+          "cold_fill",
+          "carbonation",
+          "fill_and_seal"
+        ]
+      }
+    ]
+  },
+  "labelling": {
+    "mandatory": [
+      "ingredient_list_by_weight",
+      "veg_symbol",
+      "net_quantity",
+      "best_before",
+      "storage_instructions",
+      "manufacturer_details",
+      "nutritional_info_per_100mL",
+      "additive_class_names",
+      "allergen_disclosure_if_applicable"
+    ],
+    "conditional": [
+      "caffeine_content_and_warning_if_applicable",
+      "sweetener_disclaimer_if_non_nutritive_sweeteners_used"
+    ]
+  },
+  "validation_order": [
+    "deny_prohibited_ingredients",
+    "check_additives_against_schedule",
+    "check_caffeine_limits_and_warnings",
+    "dietary_and_allergen_rules",
+    "pH_and_acid_targets",
+    "brix_target",
+    "co2_target",
+    "sodium_potassium_caps",
+    "labeling_completeness"
+  ]
+}
+
+

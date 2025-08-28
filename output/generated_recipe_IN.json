@@ -1,0 +1,54 @@
+{
+  "id": "GEN-CSD-001",
+  "name": "Generated Carbonated Beverage",
+  "country": "IN",
+  "subcategory": "carbonated",
+  "dietary_mode": "liquid",
+  "veg_flag": true,
+  "jain_flag": true,
+  "targets": {
+    "brix_percent": 1.0,
+    "pH": 3.2,
+    "ta_g_L_as_citric": 3.5,
+    "co2_volumes": 3.0
+  },
+  "ingredients": [],
+  "process": {
+    "template": "standard_csd",
+    "steps": [
+      {
+        "step": "prepare_syrup_mix",
+        "params": {}
+      },
+      {
+        "step": "filter",
+        "params": {}
+      },
+      {
+        "step": "in_line_blend_to_target_brix_and_acid",
+        "params": {}
+      },
+      {
+        "step": "chill_to_cold_fill_temperature",
+        "params": {}
+      },
+      {
+        "step": "carbonation_to_target_volumes",
+        "params": {}
+      },
+      {
+        "step": "fill_and_seal",
+        "params": {}
+      },
+      {
+        "step": "date_code_and_pack",
+        "params": {}
+      }
+    ]
+  },
+  "labels": {
+    "veg_symbol": true,
+    "claims": [],
+    "warnings": []
+  }
+}
