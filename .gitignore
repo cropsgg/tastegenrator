@@ -8,6 +8,8 @@ input/HyperFoods/
 input/KitcheNette/
 input/paths/
 input/*.pickle
+input/edges_191120.csv
+input/nodes_191120.csv
 
 # output files
 output/*.html
