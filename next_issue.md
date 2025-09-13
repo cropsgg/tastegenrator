@@ -1,4 +1,4 @@
-## Accuracy and Production Readiness Guide (India, Carbonated Beverages)
+## Accuracy and Production Readiness Guide (Indianspecific, Carbonated Beverages)
 
 ### 1) Current status (what you have now)
 - Embeddings: FlavorGraph2Vec trained on a food-chemical graph, good for “what goes with what.”
